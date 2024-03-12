@@ -8,9 +8,7 @@ Original file is located at
 """
 
 # !pip install --upgrade langchain
-
-from langchain_community.llms import Tongyi
-from langchain_community.chat_models.tongyi import ChatTongyi
+from config import *
 from langchain.schema import HumanMessage, SystemMessage, AIMessage
 
 # !pip install dashscope --upgrade
@@ -18,7 +16,8 @@ from langchain.schema import HumanMessage, SystemMessage, AIMessage
 # from google.colab import userdata
 # key=userdata.get('DASHSCOPE_API_KEY')
 # chat = ChatTongyi(amodel="qwen-72b-chat", dashscope_api_key=key)
-chat = ChatTongyi(amodel="qwen-72b-chat")
+# chat = load("Tongyi","qwen-72b-chat")
+chat= load("Ollama", "gemma:2b")
 
 ret= chat.invoke(
     [
